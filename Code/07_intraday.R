@@ -32,7 +32,7 @@ head(tcs.f.day1)
 plot(tcs.f.day1[,"ltp"])
 
 ## Now let's do some examples of using this data
-source("functions.R")
+source("utils/functions.R")
 
 ## Plot of Nifty level at tick frequency, for one day
 plot (data.nifty[[1]]$nifty/100,
