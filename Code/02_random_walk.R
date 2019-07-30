@@ -1,13 +1,31 @@
+## Example 1 : 
+# Suppose price of a stock move up by 10 paisa with probability 0.5 or move down by 10 paisa with probability 0.5 every seconds. 
+# If the price of the stock is Re 1/-; then what will be the price of the stock after 21600 seconds
+# The model $P_t=P_{t-1}\pm M_t$, where $M_t=5~a.s.$
+  
+set.seed(321)
+n<-21600
+P<-rep(NA,n)
+P[1]<-100 ## Current price 100 paisa or Re 1/-
+for(sec in 2:n){
+  toss<-sample(c("H","T"),1,replace = TRUE,prob = c(0.5,0.5))
+  if(toss=="H")P[sec]<-P[sec-1]+5
+  if(toss=="T")P[sec]<-P[sec-1]-5
+}
+plot(ts(P))
+abline(h=0,lwd=2,col="red")
+
+### Example 2: Random Walk with Random Moves
+
 # Suppose price of a stock move up or down with probability 0.5 or 
 # Size of the movement follow $Poisson(\lambda=5)$
-# If the price of the stock is Re 1/-; then what will be the price of the stock after 21600 seconds
+  # If the price of the stock is Re 1/-; then what will be the price of the stock after 21600 seconds
 # The model:
 #  $$
 #  P_t=P_{t-1}+\pm M_t,
 #  $$
 #  where $M_t \sim Poisson(\lambda=5)$
-
-
+  
 set.seed(321)
 n<-21600
 P<-M<-rep(NA,n)
