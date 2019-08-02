@@ -1,6 +1,6 @@
 ## Let's go into some real data
 library(xts)
-print(load("../data/demo_intradaydata.rda"))
+print(load("../Data/demo_intradaydata.rda"))
 ## So we have to decipher
 ##    background
 ##    data.nifty
